@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHITEO - TECH SPECIAL FOR YOUR BUSINESS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#121212',
+                        darkgray: '#1E1E1E',
+                        matteblack: '#282828',
+                        accent: '#3B82F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #f3f3f3;
+            scroll-behavior: smooth;
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-text {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #1E1E1E, #282828);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .price-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #1E1E1E, #282828);
+        }
+        
+        .price-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+        }
+        
+        .contact-input {
+            background-color: #1E1E1E;
+            border: 1px solid #282828;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-input:focus {
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        
+        .language-selector {
+            background-color: #1E1E1E;
+            border: 1px solid #282828;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+            to { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="fixed top-4 right-4 z-50">
+        <select id="languageSelector" class="language-selector text-white px-3 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+        </select>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-darkgray bg-opacity-90 z-40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#home" class="text-white text-xl font-bold flex items-center">
+                        <span class="text-accent">AHI</span>TEO
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="nav.home">Home</a>
+                        <a href="#about" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="nav.about">About</a>
+                        <a href="#skills" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="nav.skills">Skills</a>
+                        <a href="#portfolio" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="nav.portfolio">Portfolio</a>
+                        <a href="#pricing" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="nav.pricing">Pricing</a>
+                        <a href="#contact" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="nav.contact">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darkgray">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white" data-i18n="nav.home">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white" data-i18n="nav.about">About</a>
+                <a href="#skills" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white" data-i18n="nav.skills">Skills</a>
+                <a href="#portfolio" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white" data-i18n="nav.portfolio">Portfolio</a>
+                <a href="#pricing" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white" data-i18n="nav.pricing">Pricing</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white" data-i18n="nav.contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="section flex items-center justify-center bg-gradient-to-br from-dark to-darkgray">
+        <div class="max-w-4xl mx-auto text-center px-4 fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 hero-text" data-i18n="hero.title">TECH SPECIAL FOR YOUR BUSINESS</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8" data-i18n="hero.subtitle">Custom solutions to elevate your digital presence</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contact" class="px-8 py-3 bg-accent text-white rounded-md font-medium hover:bg-blue-600 transition duration-300" data-i18n="hero.cta">Get Started</a>
+                <a href="#portfolio" class="px-8 py-3 border border-accent text-accent rounded-md font-medium hover:bg-darkgray transition duration-300" data-i18n="hero.portfolio">View Portfolio</a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#about" class="text-gray-400 hover:text-white animate-bounce">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-darkgray">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4" data-i18n="about.title">About Me</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 bg-accent rounded-full opacity-20 absolute -z-10 top-4 left-4"></div>
+                        <img src="https://via.placeholder.com/300" alt="Profile" class="w-64 h-64 rounded-full object-cover border-4 border-accent">
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-semibold mb-4" data-i18n="about.name">AHITEO - Your Tech Specialist</h3>
+                    <p class="text-gray-300 mb-6" data-i18n="about.description">
+                        With over 5 years of experience in the tech industry, I specialize in creating custom solutions that help businesses thrive in the digital world. My approach combines technical expertise with creative problem-solving to deliver results that exceed expectations.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-accent"></i>
+                            </div>
+                            <span data-i18n="about.experience">5+ Years Experience</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-accent"></i>
+                            </div>
+                            <span data-i18n="about.clients">50+ Satisfied Clients</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-accent"></i>
+                            </div>
+                            <span data-i18n="about.projects">100+ Completed Projects</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-accent"></i>
+                            </div>
+                            <span data-i18n="about.support">24/7 Support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-6 py-2 bg-accent text-white rounded-md font-medium hover:bg-blue-600 transition duration-300" data-i18n="about.contact">Contact Me</a>
+                        <a href="#" class="px-6 py-2 border border-accent text-accent rounded-md font-medium hover:bg-dark transition duration-300" data-i18n="about.resume">Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-dark">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4" data-i18n="skills.title">My Skills</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Python -->
+                <div class="skill-card rounded-lg p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fab fa-python text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="skills.python.title">Python Development</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4" data-i18n="skills.python.description">
+                        Custom Python scripts, automation, data processing, and backend development tailored to your business needs.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.python.skill1">Automation</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.python.skill2">Web Scraping</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.python.skill3">Data Analysis</span>
+                    </div>
+                </div>
+                
+                <!-- Telegram Bots -->
+                <div class="skill-card rounded-lg p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fab fa-telegram text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="skills.telegram.title">Telegram Bots</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4" data-i18n="skills.telegram.description">
+                        Powerful Telegram bots for customer service, notifications, payments, and automation to enhance user engagement.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.telegram.skill1">AI Integration</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.telegram.skill2">Payment Systems</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.telegram.skill3">Multi-language</span>
+                    </div>
+                </div>
+                
+                <!-- Web Development -->
+                <div class="skill-card rounded-lg p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-code text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="skills.web.title">Web Development</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4" data-i18n="skills.web.description">
+                        Responsive, fast, and secure websites with modern design and optimal user experience for your business.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.web.skill1">Frontend</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.web.skill2">Backend</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.web.skill3">E-commerce</span>
+                    </div>
+                </div>
+                
+                <!-- SQL -->
+                <div class="skill-card rounded-lg p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-database text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="skills.sql.title">Database Management</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4" data-i18n="skills.sql.description">
+                        Efficient database design, optimization, and management for your applications and business data.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.sql.skill1">SQL</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.sql.skill2">NoSQL</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.sql.skill3">ETL</span>
+                    </div>
+                </div>
+                
+                <!-- Data Visualization -->
+                <div class="skill-card rounded-lg p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-line text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="skills.data.title">Data Visualization</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4" data-i18n="skills.data.description">
+                        Interactive dashboards and reports that transform complex data into actionable business insights.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.data.skill1">Dashboards</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.data.skill2">BI Tools</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.data.skill3">Reports</span>
+                    </div>
+                </div>
+                
+                <!-- UI/UX Design -->
+                <div class="skill-card rounded-lg p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-paint-brush text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="skills.design.title">UI/UX Design</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4" data-i18n="skills.design.description">
+                        Beautiful and intuitive interfaces that enhance user experience and drive engagement with your product.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.design.skill1">Wireframing</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.design.skill2">Prototyping</span>
+                        <span class="px-3 py-1 bg-darkgray rounded-full text-sm" data-i18n="skills.design.skill3">User Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section bg-darkgray">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4" data-i18n="portfolio.title">My Portfolio</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+                <p class="text-gray-300 max-w-2xl mx-auto mt-4" data-i18n="portfolio.subtitle">Explore my recent projects and see how I've helped businesses like yours</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-accent bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <a href="#" class="opacity-0 hover:opacity-100 text-white text-lg font-semibold bg-accent px-4 py-2 rounded-full transition-opacity duration-300" data-i18n="portfolio.view">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-matteblack">
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="portfolio.project1.title">E-commerce Automation</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.project1.description">Automated inventory management and order processing system for online store.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">SQL</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">Automation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-accent bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <a href="#" class="opacity-0 hover:opacity-100 text-white text-lg font-semibold bg-accent px-4 py-2 rounded-full transition-opacity duration-300" data-i18n="portfolio.view">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-matteblack">
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="portfolio.project2.title">Telegram CRM Bot</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.project2.description">Customer relationship management system integrated with Telegram messenger.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">Telegram API</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">SQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 3" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-accent bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <a href="#" class="opacity-0 hover:opacity-100 text-white text-lg font-semibold bg-accent px-4 py-2 rounded-full transition-opacity duration-300" data-i18n="portfolio.view">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-matteblack">
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="portfolio.project3.title">Business Analytics Dashboard</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.project3.description">Interactive dashboard for real-time business performance monitoring.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">Data Visualization</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">SQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 4" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-accent bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <a href="#" class="opacity-0 hover:opacity-100 text-white text-lg font-semibold bg-accent px-4 py-2 rounded-full transition-opacity duration-300" data-i18n="portfolio.view">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-matteblack">
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="portfolio.project4.title">Corporate Website</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.project4.description">Modern responsive website with CMS for easy content management.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">HTML/CSS</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">CMS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 5" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-accent bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <a href="#" class="opacity-0 hover:opacity-100 text-white text-lg font-semibold bg-accent px-4 py-2 rounded-full transition-opacity duration-300" data-i18n="portfolio.view">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-matteblack">
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="portfolio.project5.title">Payment Processing Bot</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.project5.description">Secure payment processing system integrated with Telegram.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">Payment API</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">Security</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 6" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-accent bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <a href="#" class="opacity-0 hover:opacity-100 text-white text-lg font-semibold bg-accent px-4 py-2 rounded-full transition-opacity duration-300" data-i18n="portfolio.view">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-matteblack">
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="portfolio.project6.title">Data Migration Tool</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.project6.description">Custom tool for seamless migration between different database systems.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">ETL</span>
+                            <span class="px-3 py-1 bg-darkgray rounded-full text-sm">SQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#" class="px-8 py-3 border border-accent text-accent rounded-md font-medium hover:bg-dark transition duration-300 inline-flex items-center" data-i18n="portfolio.more">
+                    View More Projects
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section bg-dark">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4" data-i18n="pricing.title">My Pricing</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+                <p class="text-gray-300 max-w-2xl mx-auto mt-4" data-i18n="pricing.subtitle">Flexible pricing options tailored to your business needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="price-card rounded-lg overflow-hidden border border-gray-700 hover:border-accent transition-all duration-300">
+                    <div class="p-6 bg-darkgray">
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="pricing.basic.title">Basic</h3>
+                        <p class="text-gray-300 mb-6" data-i18n="pricing.basic.description">Perfect for small projects and startups</p>
+                        
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold" id="basic-price">$500</span>
+                            <span class="text-gray-400" data-i18n="pricing.per_project">/project</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.basic.feature1">Custom Python Script</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.basic.feature2">Basic Telegram Bot</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.basic.feature3">Simple Website</span>
+                            </li>
+                            <li class="flex items-center text-gray-500">
+                                <i class="fas fa-times text-gray-500 mr-2"></i>
+                                <span data-i18n="pricing.basic.feature4">No Database</span>
+                            </li>
+                            <li class="flex items-center text-gray-500">
+                                <i class="fas fa-times text-gray-500 mr-2"></i>
+                                <span data-i18n="pricing.basic.feature5">No Support</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#contact" class="block w-full py-3 px-4 text-center bg-dark border border-accent text-accent rounded-md font-medium hover:bg-accent hover:text-white transition duration-300" data-i18n="pricing.choose">Choose Plan</a>
+                    </div>
+                </div>
+                
+                <!-- Standard Plan -->
+                <div class="price-card rounded-lg overflow-hidden border-2 border-accent transform scale-105 glow">
+                    <div class="p-6 bg-darkgray">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold" data-i18n="pricing.standard.title">Standard</h3>
+                            <span class="px-3 py-1 bg-accent text-white text-xs font-semibold rounded-full" data-i18n="pricing.popular">POPULAR</span>
+                        </div>
+                        <p class="text-gray-300 mb-6" data-i18n="pricing.standard.description">Ideal for growing businesses</p>
+                        
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold" id="standard-price">$1,200</span>
+                            <span class="text-gray-400" data-i18n="pricing.per_project">/project</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.standard.feature1">Advanced Python Script</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.standard.feature2">Custom Telegram Bot</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.standard.feature3">Responsive Website</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.standard.feature4">Database Integration</span>
+                            </li>
+                            <li class="flex items-center text-gray-500">
+                                <i class="fas fa-times text-gray-500 mr-2"></i>
+                                <span data-i18n="pricing.standard.feature5">Limited Support</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#contact" class="block w-full py-3 px-4 text-center bg-accent text-white rounded-md font-medium hover:bg-blue-600 transition duration-300" data-i18n="pricing.choose">Choose Plan</a>
+                    </div>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="price-card rounded-lg overflow-hidden border border-gray-700 hover:border-accent transition-all duration-300">
+                    <div class="p-6 bg-darkgray">
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="pricing.premium.title">Premium</h3>
+                        <p class="text-gray-300 mb-6" data-i18n="pricing.premium.description">Complete solution for enterprises</p>
+                        
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold" id="premium-price">$2,500</span>
+                            <span class="text-gray-400" data-i18n="pricing.per_project">/project</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.premium.feature1">Complex Python System</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.premium.feature2">AI Telegram Bot</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.premium.feature3">Custom Web Application</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.premium.feature4">Advanced Database</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span data-i18n="pricing.premium.feature5">24/7 Priority Support</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#contact" class="block w-full py-3 px-4 text-center bg-dark border border-accent text-accent rounded-md font-medium hover:bg-accent hover:text-white transition duration-300" data-i18n="pricing.choose">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-darkgray rounded-lg p-8 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold mb-4 text-center" data-i18n="pricing.custom.title">Need a Custom Solution?</h3>
+                <p class="text-gray-300 mb-6 text-center" data-i18n="pricing.custom.description">Contact me to discuss your specific requirements and get a personalized quote.</p>
+                <div class="text-center">
+                    <a href="#contact" class="inline-flex items-center px-6 py-3 bg-accent text-white rounded-md font-medium hover:bg-blue-600 transition duration-300" data-i18n="pricing.custom.cta">
+                        Get Custom Quote
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-darkgray">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4" data-i18n="contact.title">Get In Touch</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+                <p class="text-gray-300 max-w-2xl mx-auto mt-4" data-i18n="contact.subtitle">Have a project in mind or want to discuss potential collaboration? Reach out to me!</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-1" data-i18n="contact.form.name">Your Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-md contact-input focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-1" data-i18n="contact.form.email">Email Address</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-md contact-input focus:outline-none" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium mb-1" data-i18n="contact.form.subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 rounded-md contact-input focus:outline-none" required>
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-medium mb-1" data-i18n="contact.form.service">Service Needed</label>
+                            <select id="service" name="service" class="w-full px-4 py-2 rounded-md contact-input focus:outline-none" required>
+                                <option value="" disabled selected data-i18n="contact.form.select">Select a service</option>
+                                <option value="python" data-i18n="contact.form.python">Python Development</option>
+                                <option value="telegram" data-i18n="contact.form.telegram">Telegram Bot</option>
+                                <option value="website" data-i18n="contact.form.website">Website Development</option>
+                                <option value="sql" data-i18n="contact.form.sql">Database Solutions</option>
+                                <option value="data" data-i18n="contact.form.data">Data Visualization</option>
+                                <option value="design" data-i18n="contact.form.design">UI/UX Design</option>
+                                <option value="other" data-i18n="contact.form.other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-1" data-i18n="contact.form.message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 rounded-md contact-input focus:outline-none" required></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full py-3 px-4 bg-accent text-white rounded-md font-medium hover:bg-blue-600 transition duration-300" data-i18n="contact.form.submit">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-matteblack rounded-lg p-8 h-full">
+                        <h3 class="text-xl font-semibold mb-6" data-i18n="contact.info.title">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-envelope text-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium" data-i18n="contact.info.email">Email</h4>
+                                    <a href="mailto:contact@ahiteo.com" class="text-gray-300 hover:text-accent transition">contact@ahiteo.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fab fa-telegram text-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium" data-i18n="contact.info.telegram">Telegram</h4>
+                                    <a href="https://t.me/ahiteo" target="_blank" class="text-gray-300 hover:text-accent transition">@ahiteo</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium" data-i18n="contact.info.phone">Phone</h4>
+                                    <a href="tel:+1234567890" class="text-gray-300 hover:text-accent transition">+1 (234) 567-890</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium" data-i18n="contact.info.location">Location</h4>
+                                    <p class="text-gray-300" data-i18n="contact.info.address">Remote Worldwide</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium mb-4" data-i18n="contact.info.social">Connect with me</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-dark rounded-full flex items-center justify-center text-gray-300 hover:text-accent hover:bg-darkgray transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-dark rounded-full flex items-center justify-center text-gray-300 hover:text-accent hover:bg-darkgray transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-dark rounded-full flex items-center justify-center text-gray-300 hover:text-accent hover:bg-darkgray transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-dark rounded-full flex items-center justify-center text-gray-300 hover:text-accent hover:bg-darkgray transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 bg-dark p-4 rounded-lg">
+                            <h4 class="font-medium mb-2" data-i18n="contact.info.availability">Availability</h4>
+                            <p class="text-gray-300 text-sm" data-i18n="contact.info.hours">Monday - Friday: 9:00 AM - 6:00 PM (GMT)</p>
+                            <p class="text-gray-300 text-sm" data-i18n="contact.info.response">Response time: within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#home" class="text-white text-2xl font-bold flex items-center">
+                        <span class="text-accent">AHI</span>TEO
+                    </a>
+                    <p class="text-gray-400 mt-2" data-i18n="footer.tagline">Tech Special for Your Business</p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-8 mb-6 md:mb-0">
+                    <a href="#about" class="text-gray-400 hover:text-white transition" data-i18n="footer.about">About</a>
+                    <a href="#skills" class="text-gray-400 hover:text-white transition" data-i18n="footer.skills">Skills</a>
+                    <a href="#portfolio" class="text-gray-400 hover:text-white transition" data-i18n="footer.portfolio">Portfolio</a>
+                    <a href="#pricing" class="text-gray-400 hover:text-white transition" data-i18n="footer.pricing">Pricing</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition" data-i18n="footer.contact">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-darkgray rounded-full flex items-center justify-center text-gray-300 hover:text-accent transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-darkgray rounded-full flex items-center justify-center text-gray-300 hover:text-accent transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-darkgray rounded-full flex items-center justify-center text-gray-300 hover:text-accent transition">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-darkgray rounded-full flex items-center justify-center text-gray-300 hover:text-accent transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0" data-i18n="footer.copyright">© 2023 AHITEO. All rights reserved.</p>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition" data-i18n="footer.terms">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition" data-i18n="footer.cookies">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-blue-600">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 opacity-0 invisible transition-opacity duration-300">
+        <div class="bg-darkgray rounded-lg p-8 max-w-md w-full mx-4 transform transition-all duration-300 scale-95">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2" data-i18n="modal.success.title">Message Sent!</h3>
+                <p class="text-gray-300 mb-6" data-i18n="modal.success.message">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                <button id="closeModal" class="px-6 py-2 bg-accent text-white rounded-md font-medium hover:bg-blue-600 transition duration-300" data-i18n="modal.success.button">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.remove('opacity-100', 'visible');
+                backToTop.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to your server
+            // For demo purposes, we'll just show the success modal
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('opacity-0', 'invisible');
+            modal.classList.add('opacity-100', 'visible');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Close modal
+        document.getElementById('closeModal').addEventListener('click', function() {
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('opacity-100', 'visible');
+            modal.classList.add('opacity-0', 'invisible');
+        });
+
+        // Language translation system
+        const translations = {
+            en: {
+                "nav.home": "Home",
+                "nav.about": "About",
+                "nav.skills": "Skills",
+                "nav.portfolio": "Portfolio",
+                "nav.pricing": "Pricing",
+                "nav.contact": "Contact",
+                "hero.title": "TECH SPECIAL FOR YOUR BUSINESS",
+                "hero.subtitle": "Custom solutions to elevate your digital presence",
+                "hero.cta": "Get Started",
+                "hero.portfolio": "View Portfolio",
+                "about.title": "About Me",
+                "about.name": "AHITEO - Your Tech Specialist",
+                "about.description": "With over 5 years of experience in the tech industry, I specialize in creating custom solutions that help businesses thrive in the digital world. My approach combines technical expertise with creative problem-solving to deliver results that exceed expectations.",
+                "about.experience": "5+ Years Experience",
+                "about.clients": "50+ Satisfied Clients",
+                "about.projects": "100+ Completed Projects",
+                "about.support": "24/7 Support",
+                "about.contact": "Contact Me",
+                "about.resume": "Download CV",
+                "skills.title": "My Skills",
+                "skills.python.title": "Python Development",
+                "skills.python.description": "Custom Python scripts, automation, data processing, and backend development tailored to your business needs.",
+                "skills.python.skill1": "Automation",
+                "skills.python.skill2": "Web Scraping",
+                "skills.python.skill3": "Data Analysis",
+                "skills.telegram.title": "Telegram Bots",
+                "skills.telegram.description": "Powerful Telegram bots for customer service, notifications, payments, and automation to enhance user engagement.",
+                "skills.telegram.skill1": "AI Integration",
+                "skills.telegram.skill2": "Payment Systems",
+                "skills.telegram.skill3": "Multi-language",
+                "skills.web.title": "Web Development",
+                "skills.web.description": "Responsive, fast, and secure websites with modern design and optimal user experience for your business.",
+                "skills.web.skill1": "Frontend",
+                "skills.web.skill2": "Backend",
+                "skills.web.skill3": "E-commerce",
+                "skills.sql.title": "Database Management",
+                "skills.sql.description": "Efficient database design, optimization, and management for your applications and business data.",
+                "skills.sql.skill1": "SQL",
+                "skills.sql.skill2": "NoSQL",
+                "skills.sql.skill3": "ETL",
+                "skills.data.title": "Data Visualization",
+                "skills.data.description": "Interactive dashboards and reports that transform complex data into actionable business insights.",
+                "skills.data.skill1": "Dashboards",
+                "skills.data.skill2": "BI Tools",
+                "skills.data.skill3": "Reports",
+                "skills.design.title": "UI/UX Design",
+                "skills.design.description": "Beautiful and intuitive interfaces that enhance user experience and drive engagement with your product.",
+                "skills.design.skill1": "Wireframing",
+                "skills.design.skill2": "Prototyping",
+                "skills.design.skill3": "User Testing",
+                "portfolio.title": "My Portfolio",
+                "portfolio.subtitle": "Explore my recent projects and see how I've helped businesses like yours",
+                "portfolio.view": "View Project",
+                "portfolio.project1.title": "E-commerce Automation",
+                "portfolio.project1.description": "Automated inventory management and order processing system for online store.",
+                "portfolio.project2.title": "Telegram CRM Bot",
+                "portfolio.project2.description": "Customer relationship management system integrated with Telegram messenger.",
+                "portfolio.project3.title": "Business Analytics Dashboard",
+                "portfolio.project3.description": "Interactive dashboard for real-time business performance monitoring.",
+                "portfolio.project4.title": "Corporate Website",
+                "portfolio.project4.description": "Modern responsive website with CMS for easy content management.",
+                "portfolio.project5.title": "Payment Processing Bot",
+                "portfolio.project5.description": "Secure payment processing system integrated with Telegram.",
+                "portfolio.project6.title": "Data Migration Tool",
+                "portfolio.project6.description": "Custom tool for seamless migration between different database systems.",
+                "portfolio.more": "View More Projects",
+                "pricing.title": "My Pricing",
+                "pricing.subtitle": "Flexible pricing options tailored to your business needs",
+                "pricing.per_project": "/project",
+                "pricing.basic.title": "Basic",
+                "pricing.basic.description": "Perfect for small projects and startups",
+                "pricing.basic.feature1": "Custom Python Script",
+                "pricing.basic.feature2": "Basic Telegram Bot",
+                "pricing.basic.feature3": "Simple Website",
+                "pricing.basic.feature4": "No Database",
+                "pricing.basic.feature5": "No Support",
+                "pricing.standard.title": "Standard",
+                "pricing.standard.description": "Ideal for growing businesses",
+                "pricing.standard.feature1": "Advanced Python Script",
+                "pricing.standard.feature2": "Custom Telegram Bot",
+                "pricing.standard.feature3": "Responsive Website",
+                "pricing.standard.feature4": "Database Integration",
+                "pricing.standard.feature5": "Limited Support",
+                "pricing.premium.title": "Premium",
+                "pricing.premium.description": "Complete solution for enterprises",
+                "pricing.premium.feature1": "Complex Python System",
+                "pricing.premium.feature2": "AI Telegram Bot",
+                "pricing.premium.feature3": "Custom Web Application",
+                "pricing.premium.feature4": "Advanced Database",
+                "pricing.premium.feature5": "24/7 Priority Support",
+                "pricing.popular": "POPULAR",
+                "pricing.choose": "Choose Plan",
+                "pricing.custom.title": "Need a Custom Solution?",
+                "pricing.custom.description": "Contact me to discuss your specific requirements and get a personalized quote.",
+                "pricing.custom.cta": "Get Custom Quote",
+                "contact.title": "Get In Touch",
+                "contact.subtitle": "Have a project in mind or want to discuss potential collaboration? Reach out to me!",
+                "contact.form.name": "Your Name",
+                "contact.form.email": "Email Address",
+                "contact.form.subject": "Subject",
+                "contact.form.service": "Service Needed",
+                "contact.form.select": "Select a service",
+                "contact.form.python": "Python Development",
+                "contact.form.telegram": "Telegram Bot",
+                "contact.form.website": "Website Development",
+                "contact.form.sql": "Database Solutions",
+                "contact.form.data": "Data Visualization",
+                "contact.form.design": "UI/UX Design",
+                "contact.form.other": "Other",
+                "contact.form.message": "Your Message",
+                "contact.form.submit": "Send Message",
+                "contact.info.title": "Contact Information",
+                "contact.info.email": "Email",
+                "contact.info.telegram": "Telegram",
+                "contact.info.phone": "Phone",
+                "contact.info.location": "Location",
+                "contact.info.address": "Remote Worldwide",
+                "contact.info.social": "Connect with me",
+                "contact.info.availability": "Availability",
+                "contact.info.hours": "Monday - Friday: 9:00 AM - 6:00 PM (GMT)",
+                "contact.info.response": "Response time: within 24 hours",
+                "footer.tagline": "Tech Special for Your Business",
+                "footer.about": "About",
+                "footer.skills": "Skills",
+                "footer.portfolio": "Portfolio",
+                "footer.pricing": "Pricing",
+                "footer.contact": "Contact",
+                "footer.copyright": "© 2023 AHITEO. All rights reserved.",
+                "footer.privacy": "Privacy Policy",
+                "footer.terms": "Terms of Service",
+                "footer.cookies": "Cookies",
+                "modal.success.title": "Message Sent!",
+                "modal.success.message": "Thank you for reaching out. I'll get back to you as soon as possible.",
+                "modal.success.button": "Close"
+            },
+            ru: {
+                "nav.home": "Главная",
+                "nav.about": "Обо мне",
+                "nav.skills": "Навыки",
+                "nav.portfolio": "Портфолио",
+                "nav.pricing": "Цены",
+                "nav.contact": "Контакты",
+                "hero.title": "ТЕХНИЧЕСКИЕ РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА",
+                "hero.subtitle": "Индивидуальные решения для развития вашего цифрового присутствия",
+                "hero.cta": "Начать",
+                "hero.portfolio": "Портфолио",
+                "about.title": "Обо мне",
+                "about.name": "AHITEO - Ваш технический специалист",
+                "about.description": "Имея более 5 лет опыта в технологической индустрии, я специализируюсь на создании индивидуальных решений, которые помогают бизнесу процветать в цифровом мире. Мой подход сочетает техническую экспертизу с творческим решением проблем для достижения результатов, превосходящих ожидания.",
+                "about.experience": "5+ лет опыта",
+                "about.clients": "50+ довольных клиентов",
+                "about.projects": "100+ завершенных проектов",
+                "about.support": "Поддержка 24/7",
+                "about.contact": "Связаться",
+                "about.resume": "Скачать резюме",
+                "skills.title": "Мои навыки",
+                "skills.python.title": "Разработка на Python",
+                "skills.python.description": "Индивидуальные скрипты на Python, автоматизация, обработка данных и разработка серверной части, адаптированные под ваши бизнес-потребности.",
+                "skills.python.skill1": "Автоматизация",
+                "skills.python.skill2": "Веб-скрейпинг",
+                "skills.python.skill3": "Анализ данных",
+                "skills.telegram.title": "Телеграм боты",
+                "skills.telegram.description": "Мощные боты для Telegram для обслуживания клиентов, уведомлений, платежей и автоматизации для повышения вовлеченности пользователей.",
+                "skills.telegram.skill1": "Интеграция ИИ",
+                "skills.telegram.skill2": "Платежные системы",
+                "skills.telegram.skill3": "Многоязычность",
+                "skills.web.title": "Веб-разработка",
+                "skills.web.description": "Адаптивные, быстрые и безопасные веб-сайты с современным дизайном и оптимальным пользовательским опытом для вашего бизнеса.",
+                "skills.web.skill1": "Фронтенд",
+                "skills.web.skill2": "Бэкенд",
+                "skills.web.skill3": "Электронная коммерция",
+                "skills.sql.title": "Управление базами данных",
+                "skills.sql.description": "Эффективное проектирование, оптимизация и управление базами данных для ваших приложений и бизнес-данных.",
+                "skills.sql.skill1": "SQL",
+                "skills.sql.skill2": "NoSQL",
+                "skills.sql.skill3": "ETL",
+                "skills.data.title": "Визуализация данных",
+                "skills.data.description": "Интерактивные дашборды и отчеты, которые преобразуют сложные данные в полезные бизнес-инсайты.",
+                "skills.data.skill1": "Дашборды",
+                "skills.data.skill2": "BI инструменты",
+                "skills.data.skill3": "Отчеты",
+                "skills.design.title": "UI/UX дизайн",
+                "skills.design.description": "Красивые и интуитивно понятные интерфейсы, которые улучшают пользовательский опыт и вовлеченность с вашим продуктом.",
+                "skills.design.skill1": "Вайрфрейминг",
+                "skills.design.skill2": "Прототипирование",
+                "skills.design.skill3": "Тестирование пользователей",
+                "portfolio.title": "Мое портфолио",
+                "portfolio.subtitle": "Ознакомьтесь с моими последними проектами и посмотрите, как я помогал бизнесу, подобному вашему",
+                "portfolio.view": "Посмотреть проект",
+                "portfolio.project1.title": "Автоматизация электронной коммерции",
+                "portfolio.project1.description": "Система автоматизированного управления запасами и обработки заказов для интернет-магазина.",
+                "portfolio.project2.title": "CRM бот для Telegram",
+                "portfolio.project2.description": "Система управления взаимоотношениями с клиентами, интегрированная с мессенджером Telegram.",
+                "portfolio.project3.title": "Дашборд бизнес-аналитики",
+                "portfolio.project3.description": "Интерактивный дашборд для мониторинга эффективности бизнеса в реальном времени.",
+                "portfolio.project4.title": "Корпоративный сайт",
+                "portfolio.project4.description": "Современный адаптивный веб-сайт с CMS для удобного управления контентом.",
+                "portfolio.project5.title": "Бот для обработки платежей",
+                "portfolio.project5.description": "Безопасная система обработки платежей, интегрированная с Telegram.",
+                "portfolio.project6.title": "Инструмент миграции данных",
+                "portfolio.project6.description": "Индивидуальный инструмент для беспрепятственной миграции между различными системами баз данных.",
+                "portfolio.more": "Больше проектов",
+                "pricing.title": "Мои цены",
+                "pricing.subtitle": "Гибкие ценовые варианты, адаптированные под ваши бизнес-потребности",
+                "pricing.per_project": "/проект",
+                "pricing.basic.title": "Базовый",
+                "pricing.basic.description": "Идеально для небольших проектов и стартапов",
+                "pricing.basic.feature1": "Индивидуальный скрипт на Python",
+                "pricing.basic.feature2": "Базовый бот для Telegram",
+                "pricing.basic.feature3": "Простой веб-сайт",
+                "pricing.basic.feature4": "Без базы данных",
+                "pricing.basic.feature5": "Без поддержки",
+                "pricing.standard
+</html>
